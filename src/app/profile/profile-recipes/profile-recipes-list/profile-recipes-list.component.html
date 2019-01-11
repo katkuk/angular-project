@@ -1,0 +1,28 @@
+
+<input type="text" class="search" placeholder="Search your recipes..." [(ngModel)]="filterString">
+
+<div *ngFor="let userRecipe of userRecipes | filter:filterString; let i = index"
+    class="card-container" style="margin-top:30px">
+    <a class="openRecipeLink" routerLink="detail" [routerLink] = "[i]"> 
+        <mat-card class="grid-container-my-recipes" style="margin:2px;">
+                <div class="recipe-image">
+                  <div class="my-recipe-image" [style.background-image]="'url(' + userRecipes[i].imagePath + ')'"></div>
+                </div>
+                <div class="recipe-description">
+                  <h4>{{ userRecipes[i].name }}</h4>
+                   <p>{{ userRecipes[i].description }}</p>
+                   <div class="actions-container">
+                      <mat-icon class="star">star</mat-icon>
+                      <mat-icon class="star">star</mat-icon>
+                      <mat-icon class="star">star</mat-icon>
+                      <mat-icon class="star">star</mat-icon>
+                      <mat-icon class="star">star_border</mat-icon>
+                      <p> (12 ratings)</p>
+                    </div> 
+                    <button mat-raised-button color="primary" class="centeredButton">View recipe</button>
+   
+                </div>
+        </mat-card>
+     </a>
+     
+   </div>

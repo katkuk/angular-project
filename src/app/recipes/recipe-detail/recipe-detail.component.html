@@ -1,0 +1,113 @@
+<mat-card class="body-container-solid">
+
+        <div routerLink="/home" class="outer" style="float:left;">
+            <mat-icon class="redIcon" style="margin-right: 10px;">keyboard_backspace</mat-icon>
+            <p class="redLabel">back</p>
+        </div>
+
+        <div>
+            
+        </div>
+
+        <div class="grid-container-recipe-detail" style="clear:both;">
+            <div class="detail-text">
+                    <mat-card-title> {{ recipe.name }} </mat-card-title>
+                <mat-card-header>
+                    <img mat-card-avatar src="https://source.unsplash.com/random/200x200">
+                    <mat-card-title>Some user</mat-card-title>
+                </mat-card-header>
+                <mat-grid-list cols="3" rowHeight="2:1">
+                    <mat-grid-tile class="outer"><mat-icon class="redIcon" style="margin-right: 10px;">access_time</mat-icon>2.5 h</mat-grid-tile>
+                    <mat-grid-tile class="outer"><mat-icon class="redIcon" style="margin-right: 10px;">people</mat-icon>2 persons</mat-grid-tile>
+                    <mat-grid-tile class="outer"><mat-icon class="redIcon" style="margin-right: 10px;">pan_tool</mat-icon>easy</mat-grid-tile>
+                </mat-grid-list>
+            </div>
+            <div class="detail-img" [style.background-image]="'url(' + recipe.imagePath + ')'">
+                    
+            </div>
+            
+        </div>
+
+        <div class="grid-container-description-ingredients">
+            <div class="recipe-description">
+                <h3>Description</h3>
+                <p>Ask especially collecting terminated may son expression. Extremely eagerness principle estimable own was man. Men received far his dashwood subjects new. My sufficient surrounded an companions dispatched in on. Connection too unaffected expression led son possession.</p>
+            </div>
+            <div class="recipe-ingredients">
+                <h3>Ingredients</h3>
+                <div class="shopping-list-container-top2">
+                        <div class="grid-container-shopping-list2">
+                            <div class="item">
+                                <h4 class="data redLabel">Item</h4>
+                            </div>
+                            <div class="amount">
+                                <h4 class="data redLabel">Amount</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shopping-list-container2">
+                        <div class="grid-container-shopping-list2 oneSLitem">
+                            <div class="item">
+                                <p class="data">Bread crumbs</p>
+                            </div>
+                            <div class="amount">
+                                <p class="data">1 package</p>
+                            </div>
+                        </div>
+                        <div class="grid-container-shopping-list2 oneSLitem">
+                                <div class="item">
+                                    <p class="data">Bread crumbs</p>
+                                </div>
+                                <div class="amount">
+                                    <p class="data">1 package</p>
+                                </div>
+                            </div>
+                    </div>
+            
+                    <div style="margin-top: 0px;" class="add-item-container outer">
+                        <div class="outer">
+                                <mat-icon class="redIcon" style="margin-right: 10px;">add_circle</mat-icon>
+                                <p class="redLabel">add to shopping list</p>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+
+        <h3>Preparation</h3>
+        <!-- steps of the recipe -->
+        <mat-vertical-stepper >
+            <ng-template matStepperIcon="edit">
+                <mat-icon></mat-icon>
+            </ng-template>
+
+            <h2>Step by step</h2>
+            <mat-step label="Step 1">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+            </mat-step>
+            <mat-step label="Step 2">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+            </mat-step>
+            <mat-step label="Step 3">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+            </mat-step>
+        </mat-vertical-stepper>
+
+        <!-- steps of the recipe -->
+
+        <!-- <button style="margin-left:50px;" (click)="onEditRecipe()" mat-raised-button class="greenButton">
+            Edit recipe
+        </button> -->
+
+        <h2>Comments</h2>
+        <mat-card style="padding:0;">
+            <mat-card-header>
+              <img mat-card-avatar src="https://source.unsplash.com/random/200x200">
+              <mat-card-title>User</mat-card-title>
+              <mat-card-subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+        
+
+</mat-card>
+

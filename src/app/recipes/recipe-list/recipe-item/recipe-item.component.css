@@ -1,0 +1,51 @@
+
+.openRecipeLink {
+    text-decoration: none;
+}
+
+.mat-card {
+    /* height:350px; */
+    padding: 0;
+}
+
+.mat-card-title {
+    margin-top: 15px;
+}
+
+.mat-card-header {
+    padding:10px;
+    margin-left: 10px;
+}
+
+img.mat-card-avatar {
+    width:50px;
+    height:50px;
+    align-self: center;
+}
+
+.card-img-container {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 240px;
+}
+
+.mat-icon.star {
+color: #edbd66;
+}
+
+.mat-icon.heart {
+    color: #edbd66;
+    float: right;
+    font-size:35px;
+    }
+
+.actions-container {
+    padding:30px;
+}
+
+.actions-container p {
+    display: inline;
+    font-style: italic;
+}
+

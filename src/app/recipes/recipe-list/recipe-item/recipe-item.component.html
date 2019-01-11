@@ -1,0 +1,26 @@
+
+
+
+<div class="card-container">
+ <a class="openRecipeLink" [routerLink] = "[index]"> 
+  <mat-card>
+      <mat-card-header>
+        <img mat-card-avatar src="https://source.unsplash.com/random/200x200">
+        <mat-card-title>{{ recipe.name }}</mat-card-title>
+        <mat-card-subtitle>by {{ recipe.description }}</mat-card-subtitle>
+      </mat-card-header>
+      <div class="card-img-container" [style.background-image]="'url(' + recipe.imagePath + ')'" >
+         <!-- <img mat-card-image src="{{ recipe.imagePath }}"> -->
+      </div>
+      <div class="actions-container">
+        <mat-icon class="star">star</mat-icon>
+        <mat-icon class="star">star</mat-icon>
+        <mat-icon class="star">star</mat-icon>
+        <mat-icon class="star">star</mat-icon>
+        <mat-icon class="star">star_border</mat-icon>
+        <p> (12 ratings)</p>
+        <mat-icon class="heart">favorite_border</mat-icon>
+      </div>    
+    </mat-card>
+  </a>
+</div>

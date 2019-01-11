@@ -1,0 +1,36 @@
+
+
+{   "items": [{
+    "id": "1",
+    "item": "rice",
+    "amount": "1 cup"
+  }],
+    "users": [
+        {"userId": "1",
+         "username": "Nick",
+         "picture": "https://imgix.bustle.com/rehost/2016/9/13/b0008628-ab7e-4e5b-9276-8e9418fd879c.png?w=970&h=582&fit=crop&crop=faces&auto=format&q=70",
+         "email": "nick@email.com",
+         "password": "123",
+         "description": "Hello I am Nick. I cook food.",
+         "recipes": ["1"]
+        }
+      ],
+    "recipes": [
+        {"id":"1",
+        "createdBy": "1",
+        "favouritedBy": [],
+        "name": "Cajun Chicken and Rice",
+        "description": "",
+        "imagePath": "https://dev-recipes.instantpot.com/wp-content/uploads/2017/06/Instant-Pot-Cajun-Chicken-Rice-Image.jpg",
+        "ingredients": [
+          {"name": "Meat", "amount": "500 g"},
+          {"name": "Parsley", "amount": "2 branches"},
+          {"name": "Rice", "amount": "1 cup"}
+          ],
+        "steps": [
+          "Cut the chicken breasts in half lengthwise to make them thinner. Season well from both sides with Cajun seasoning (about 2 teaspoons).",
+          "Heat the Instant Pot by pressing the ‘Sauté’ button. Once display shows hot, add the oil and sauté the onion and garlic until lightly browned. Turn off Instant Pot by pressing Cancel.",
+          "Stir tomato paste into the pot. Then add rinsed rice, bell peppers, and 1 teaspoon Cajun seasoning (or more to taste and for more heat). Stir until well combined."]
+        }
+      ]
+  }

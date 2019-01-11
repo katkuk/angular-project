@@ -1,0 +1,81 @@
+
+
+.mat-card.body-container-solid {
+    margin:3px;
+    padding-top:10px;
+}
+
+.optionsContainer {
+    width:100%;
+}
+
+.optionsContainer div {
+    float:left;
+}
+
+.optionsContainer button {
+    float:right;
+    margin:10px 0 10px 0;
+}
+
+.grid-container-recipe-detail {
+    min-height:200px;
+}
+
+/* green - #99c040;
+red - #8f3838; */
+
+input, select, textarea {
+    /* background-color: #e2e2e2; */
+    border: 2px solid #e2e2e2;
+    padding: 10px;
+    margin-bottom:30px;
+    width:100%;
+}
+
+input:focus, select:focus, textarea:focus {
+    border: 2px solid #c55151;
+    outline: none;
+}
+
+label {
+    font-weight: bold;
+    color: #c55151;
+}
+
+.grid-container-shopping-list2 {
+    position: relative;
+}
+
+.addCircle2 {
+    position: absolute;
+    right: -70px;
+    top: 5px;}
+
+.oneStep {
+    margin-left: 50px;
+    position: relative;
+}
+
+.oneStep p {
+    position: absolute;
+    left: -25px;
+    top: 23px;
+    border-radius: 50%;
+    width: 20px;
+    padding: 2px;
+    background: #c55151;
+    color: white;
+    text-align: center;
+}
+
+.oneStep textarea {
+    width:90%;
+    margin-bottom:0;
+}
+
+.addNewStep {
+    width:150px;
+    margin-right: auto;
+    margin-left: auto;
+}

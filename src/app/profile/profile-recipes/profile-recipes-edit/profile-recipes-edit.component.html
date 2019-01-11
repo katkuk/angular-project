@@ -1,0 +1,108 @@
+<mat-card class="body-container-solid">
+  <div class="optionsContainer">
+      <div routerLink="/profile" class="outer">
+        <mat-icon class="redIcon" style="margin-right: 10px; float:left;">keyboard_backspace</mat-icon>
+        <p class="redLabel">back</p>
+      </div>
+  </div>
+
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+        <div style="clear:both;">
+                <div class="detail-text" style="padding-top:20px;">
+                    <mat-card-title class="title mat-card-title">new recipe</mat-card-title>
+                    <label>Recipe title</label><br>
+                    <input type="text" name="" id="" formControlName="name">
+          
+                    <label>Image url</label><br>
+                    <input type="text" name="" id="" formControlName="imagePath">
+          
+                    <mat-grid-list cols="3" rowHeight="2:1">
+                        <mat-grid-tile class="outer"><mat-icon class="redIcon" style="margin-right: 10px;">access_time</mat-icon><input style="margin-bottom:0; margin-right:20px;" type="text" name="" id="" placeholder="Preparation time..."></mat-grid-tile>
+                        <mat-grid-tile class="outer"><mat-icon class="redIcon" style="margin-right: 10px;">people</mat-icon><input style="margin-bottom:0; margin-right:20px;" type="number" name="" id=""></mat-grid-tile>
+                        <mat-grid-tile class="outer"><mat-icon class="redIcon" style="margin-right: 10px;">pan_tool</mat-icon>
+                          <select style="margin-bottom:0;">
+                            <option value="volvo">easy</option>
+                            <option value="saab">intermediate</option>
+                            <option value="mercedes">difficult</option>
+                          </select>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </div>
+                <!-- <div class="detail-img" [style.background-image]="'url(' + recipe.imagePath + ')'"> -->
+                <div class="detail-img">       
+                </div>
+                
+            </div>
+          
+          
+                    <label>Description</label><br>
+                    <textarea rows="5" formControlName="recipeDescription"></textarea>
+          
+                    <label style="text-align: center; display: block;">Ingredients</label><br>
+                    <div class="shopping-list-container-top2">
+                            <div class="grid-container-shopping-list2">
+                                <div class="item">
+                                    <h4 class="data redLabel">Item</h4>
+                                </div>
+                                <div class="amount">
+                                    <h4 class="data redLabel">Amount</h4>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="shopping-list-container2" formArrayName="ingredients">
+                            <!-- //name of each form group in the array can be extracted with an array 
+                                 //loop through the ingredient control of recipe form and get the ingredients control
+                                 //index will be the formGroupName -->
+                            <div *ngFor="let ingtedientCtrl of recipeForm.get('ingredients').controls; let i = index"
+                            [formGroupName]="i"
+                            class="grid-container-shopping-list2 oneSLitem">
+                                <div class="item">
+                                    <input formControlName="name" class="data">
+                                </div>
+                                <div class="amount">
+                                    <input formControlName="amount" class="data">
+                                </div>
+                                <mat-icon (click)="onDeleteIngredient(i)" class="redIcon addCircle2">close</mat-icon>
+                            </div>
+                       </div>
+          
+                       <div class="shopping-list-container2">
+                          <div class="grid-container-shopping-list2 oneSLitem">
+                                  <mat-icon (click)="onAddIngredient()" class="redIcon addCircle2">add_circle</mat-icon>
+                            </div>
+                          </div>
+          
+          
+            <label style="text-align: center; display: block; margin-top:30px; margin-bottom: 30px;">Preparation</label>
+            <!-- steps of the recipe -->
+            <div class="steps">
+              <div class="oneStep outer">
+                <div class="circle">
+                    <p>1</p>
+                </div>
+                  <textarea rows="5" style="margin-left:30px;"></textarea>
+              </div>
+            </div>
+          
+            <a class="outer addNewStep" style="outline: none; text-decoration: none;">
+                <mat-icon class="redIcon">add_circle</mat-icon><p class="redLabel cursive" style="display:inline; margin-left:10px;">
+                <p class="redLabel">add new step</p>  
+            </a>
+          
+          
+          
+            <!-- steps of the recipe -->
+          
+            <button
+                    class="greenButton mat-raised-button" 
+                    style="text-align: center; 
+                    display: block;
+                    margin-right: auto;
+                    margin-left: auto;">Publish recipe</button>
+
+</form>
+  
+
+</mat-card>
+

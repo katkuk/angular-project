@@ -1,0 +1,25 @@
+
+<div class="body-container">
+
+  <div>
+    <button style="margin-left:50px;" (click)="onNewRecipe()" mat-raised-button class="greenButton">
+      <mat-icon>add</mat-icon>Add recipe
+    </button>
+  </div>
+  
+  
+  <!-- <mat-divider></mat-divider> -->
+  
+  <!-- I will bind i to index to get index of each iteration and then pass index to the app recipe item-->
+  <div class="recipe-grid">
+    <app-recipe-item *ngFor="let recipeElement of recipes; let i = index"
+    [recipe]="recipeElement"
+    [index]="i"
+    ></app-recipe-item>
+  </div>
+</div>
+
+<!-- <mat-card class="body-container-solid">
+    <router-outlet></router-outlet>
+</mat-card> -->
+

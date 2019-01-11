@@ -1,0 +1,32 @@
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+  }
+  
+  .spacer {
+      flex: 1 1 auto;
+      /* because angle material toolbar uses flexbox behind the scenes and this element uses 
+      all the available remaining space and pushes everything to the right */
+  }
+  
+  mat-toolbar a {
+    color:white;
+    text-decoration: none;
+    text-transform: lowercase;
+    margin-left: 10px;
+  }
+  
+  mat-toolbar a:hover {
+    text-decoration-line: underline;
+    -moz-text-decoration-line: underline;
+  }
+  
+  a mat-icon {
+    vertical-align: middle;
+  }
+  
+  mat-toolbar {
+    background-color: #99c040;
+    color:white;
+  }

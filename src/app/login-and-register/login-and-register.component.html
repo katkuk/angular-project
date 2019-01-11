@@ -1,0 +1,71 @@
+
+<mat-card class="body-container-solid login">
+  <mat-card-title class="title">Log in/Register</mat-card-title>
+
+  <mat-tab-group dynamicHeight="true">
+    <mat-tab label="Login"> 
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin(loginForm)">
+          <mat-form-field>
+              <input matInput placeholder="Username" formControlName="username">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <!-- https://stackoverflow.com/questions/47884655/display-custom-validator-error-with-mat-error -->
+                <!-- <mat-hint *ngIf="this.userRegistered == false">
+                    <p class="errorMessage">Username or password are wrong.</p>
+                </mat-hint> -->
+                <mat-hint *ngIf="this.userRegistered == false">
+                    <p class="errorMessage">You have entered an invalid username or password.</p>
+                </mat-hint>
+            </mat-form-field>
+            <button mat-raised-button color="primary" class="centerButton">Log in</button>
+      </form>
+    </mat-tab>
+    <mat-tab label="Register"> 
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+          
+            <mat-form-field>
+                <input matInput placeholder="Username" id="regUsername" formControlName="username" required>
+                <mat-error *ngIf="registerForm.controls.username.touched">
+                    <p class="errorMessage">Username is required.</p>
+                </mat-error>
+                <mat-error *ngIf="registerForm.controls.username.touched && registerForm.controls.username.errors?.minlength">
+                    <p class="errorMessage">Username must be longer than 3 characters.</p>
+                </mat-error>
+            </mat-form-field>
+              <mat-form-field>
+                  <input matInput placeholder="Email" formControlName="email" required>
+                  <mat-error *ngIf="registerForm.controls.email.touched">
+                    <p class="errorMessage">Email is required.</p>
+                 </mat-error>
+                  <mat-error *ngIf="registerForm.controls.email.touched && registerForm.controls.email.errors?.email">
+                    <p class="errorMessage">Email pattern not valid.</p>
+                  </mat-error>
+                </mat-form-field>
+              <mat-form-field>
+                  <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <mat-error *ngIf="registerForm.controls.password.touched">
+                    <p class="errorMessage">Password is required.</p>
+                 </mat-error>
+                 <mat-error *ngIf="registerForm.controls.username.touched && registerForm.controls.username.errors?.minlength">
+                    <p class="errorMessage">Password must be longer than 5 characters.</p>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                  <input matInput placeholder="Repeat password" [type]="hide ? 'password' : 'text'" formControlName="repeatPassword" required>
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <mat-error *ngIf="registerForm.controls.repeatPassword.touched">
+                    <p class="errorMessage">Repeat password is required.</p>
+                 </mat-error>
+              </mat-form-field>
+              <button mat-raised-button color="primary" class="centerButton">Register</button>
+          
+        </form>
+    </mat-tab>
+  </mat-tab-group>  
+
+</mat-card>
+
+

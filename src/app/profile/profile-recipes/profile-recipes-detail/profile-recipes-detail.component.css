@@ -1,0 +1,21 @@
+.mat-card.body-container-solid {
+    margin:3px;
+    padding-top:10px;
+}
+
+.optionsContainer {
+    width:100%;
+}
+
+.optionsContainer div {
+    float:left;
+}
+
+.optionsContainer button {
+    float:right;
+    margin:10px 0 10px 0;
+}
+
+.grid-container-recipe-detail {
+    min-height:200px;
+}
