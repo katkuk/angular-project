@@ -29,7 +29,7 @@ export class UserAuthGuard implements CanActivate {
 
     this.userAuthService.redirectUrl = url;
 
-    this.router.navigate(['']);
+    this.router.navigate(['register-login']);
     return false;
 
 

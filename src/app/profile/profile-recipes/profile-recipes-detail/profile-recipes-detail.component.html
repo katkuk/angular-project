@@ -52,23 +52,16 @@
                       </div>
                   </div>
               </div>
-              <div class="shopping-list-container2">
+              <div class="shopping-list-container2" 
+              *ngFor="let ingredient of recipe.ingredients">
                   <div class="grid-container-shopping-list2 oneSLitem">
                       <div class="item">
-                          <p class="data">Bread crumbs</p>
+                          <p class="data">{{ingredient.name}}</p>
                       </div>
                       <div class="amount">
-                          <p class="data">1 package</p>
+                          <p class="data">{{ingredient.amount}}</p>
                       </div>
                   </div>
-                  <div class="grid-container-shopping-list2 oneSLitem">
-                          <div class="item">
-                              <p class="data">Bread crumbs</p>
-                          </div>
-                          <div class="amount">
-                              <p class="data">1 package</p>
-                          </div>
-                      </div>
               </div>
       
               <!-- <div style="margin-top: 0px;" class="add-item-container outer">

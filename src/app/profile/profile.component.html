@@ -27,13 +27,13 @@
         <p class="cursive" style="margin-left: 0.5em;">cook of the month:</p><br>
         <p class="cursive" style="margin-left: 0.5em;">January 2019</p>
     </div>
-    <button mat-raised-button color="primary" class="centeredButton">Log out</button>
+    <button mat-raised-button color="primary" class="centeredButton" (click)="onLogout()">Log out</button>
   </div>
   
   <div class="profile-dashboard">
       <mat-tab-group dynamicHeight="true">
           <mat-tab label="My recipes"> 
-            <a class="outer" routerLinkActive="active" routerLink="new" href="#" style="outline: none; text-decoration: none;">
+            <a class="outer" routerLinkActive="active" id="addNewRecipe" routerLink="new" href="#" style="outline: none; text-decoration: none;">
                 <mat-icon class="redIcon">add_circle</mat-icon><p class="redLabel cursive" style="display:inline; margin-left:10px;">
                 <p class="redLabel">add new recipe</p>  
             </a>

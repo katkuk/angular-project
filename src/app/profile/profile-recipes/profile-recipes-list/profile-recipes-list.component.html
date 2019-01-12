@@ -2,7 +2,7 @@
 <input type="text" class="search" placeholder="Search your recipes..." [(ngModel)]="filterString">
 
 <div *ngFor="let userRecipe of userRecipes | filter:filterString; let i = index"
-    class="card-container" style="margin-top:30px">
+    class="card-container recipe-container" style="margin-top:30px">
     <a class="openRecipeLink" routerLink="detail" [routerLink] = "[i]"> 
         <mat-card class="grid-container-my-recipes" style="margin:2px;">
                 <div class="recipe-image">

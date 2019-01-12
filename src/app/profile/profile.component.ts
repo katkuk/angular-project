@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from '../recipes/recipe.model';
+import { UserAuthService } from '../user-auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +16,9 @@ export class ProfileComponent implements OnInit {
   userRecipes: Recipe[];
 
   constructor( private userService: UserService, 
-               private recipeService: RecipeService) { }
+               private recipeService: RecipeService,
+               private userAuthService: UserAuthService,
+               private router: Router) { }
 
   ngOnInit() {
     this.loggedInUser = this.userService.getUserById();
@@ -23,8 +27,12 @@ export class ProfileComponent implements OnInit {
   
 
   onLogout() {
+    console.log('logout clicked');
     //clear local storage
+    localStorage.removeItem('userId');
     //do that logout() thing
+    this.userAuthService.logout();
+    this.router.navigate(['register-login']);
   }
 
 }

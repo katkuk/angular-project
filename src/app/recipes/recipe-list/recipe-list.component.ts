@@ -20,7 +20,7 @@ export class RecipeListComponent implements OnInit {
   //   new Recipe('Another one', 'jejejeje', 'https://media-cdn.tripadvisor.com/media/photo-s/0d/fc/df/21/cevapi-with-onions.jpg')
   // ];
 
-  recipes: Recipe[];
+  recipes: any;
 
   constructor( private recipeService: RecipeService,
                private router: Router,
@@ -39,6 +39,7 @@ export class RecipeListComponent implements OnInit {
       }
     )
       this.recipes = this.recipeService.getRecipes();
+      console.log('recipes are...'+ this.recipeService.getRecipes());
   }
 
   onNewRecipe() {

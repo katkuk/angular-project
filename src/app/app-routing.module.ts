@@ -28,7 +28,7 @@ const appRoutes: Routes = [
         {path: ':id', component: ProfileRecipesDetailComponent},
         {path: ':id/edit', component: ProfileRecipesEditComponent}
     ]},
-    { path: 'favourites', component: FavouritesComponent },
+    { path: 'favourites', component: FavouritesComponent, canActivate: [UserAuthGuard] },
     { path: 'home', component: RecipesComponent, children: [
         {path: '', component: RecipeListComponent },
         {path: 'list', component: RecipeListComponent},
@@ -37,7 +37,7 @@ const appRoutes: Routes = [
         {path: ':id', component: RecipeDetailComponent},
         {path: ':id/edit', component: RecipeEditComponent}
     ] },
-    { path: 'shopping-list', component: ShoppingListComponent},
+    { path: 'shopping-list', component: ShoppingListComponent, canActivate: [UserAuthGuard]},
     { path: 'register-login', component: LoginAndRegisterComponent }
 ]
 

@@ -10,7 +10,7 @@ import { RecipeService } from 'src/app/recipes/recipe.service';
 })
 export class ProfileRecipesListComponent implements OnInit {
 
-  userRecipes: Recipe[];
+  userRecipes: any;
 
   filteredRecipes = '';
 

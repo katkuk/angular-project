@@ -6,10 +6,10 @@
     <mat-tab label="Login"> 
       <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin(loginForm)">
           <mat-form-field>
-              <input matInput placeholder="Username" formControlName="username">
+              <input matInput placeholder="Username" formControlName="username" name="username">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password">
+                <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" name="password">
                 <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 <!-- https://stackoverflow.com/questions/47884655/display-custom-validator-error-with-mat-error -->
                 <!-- <mat-hint *ngIf="this.userRegistered == false">
@@ -19,7 +19,7 @@
                     <p class="errorMessage">You have entered an invalid username or password.</p>
                 </mat-hint>
             </mat-form-field>
-            <button mat-raised-button color="primary" class="centerButton">Log in</button>
+            <button mat-raised-button color="primary" class="centerButton" id="loginButton">Log in</button>
       </form>
     </mat-tab>
     <mat-tab label="Register"> 

@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredients.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs/internal/Subject';
+import { HttpClient } from '@angular/common/http';
+
 
 //injecting service into a service is done by @injectable()
 
@@ -12,6 +14,7 @@ import { Subject } from 'rxjs/internal/Subject';
 export class RecipeService {
 
     recipesChanged = new Subject<Recipe[]>();
+    // recipes : Recipe[] = [];
 
     private recipes: Recipe[] = [
         new Recipe(
@@ -37,13 +40,26 @@ export class RecipeService {
         ])
       ];
 
-      constructor(private slService: ShoppingListService ) {}
+      constructor(private slService: ShoppingListService,
+                  private httpClient: HttpClient ) {}
 
       getRecipes(){
           //slice will simply return a new array wich is a copy of the array in this service array, so
           // we can't store it from outside
           return this.recipes.slice();
       }
+
+      // getRecipes() {
+      //   this.httpClient.get<Recipe[]>('https://foodies-dream.firebaseio.com/recipes.json')
+      //     .subscribe(
+      //       //httpClient automatically extracts the body of the response, so we don't need response.json() for example
+      //       (recipes) => {
+      //       //  console.log(recipes);
+      //       this.recipes = recipes;
+      //       this.recipesChanged.next(recipes.slice());
+      //       }
+      //     );
+      // }
 
       addIngredientsToShoppingList(ingredients: Ingredient[]){
         this.slService.addIngredients(ingredients);
@@ -55,22 +71,36 @@ export class RecipeService {
 
       addRecipe(recipe: Recipe){
         this.recipes.push(recipe);
+        this.storeRecipes();
         this.recipesChanged.next(this.recipes.slice());
       }
 
       updateRecipe(index: number, newRecipe: Recipe) {
         this.recipes[index] = newRecipe;
+        this.storeRecipes();
         this.recipesChanged.next(this.recipes.slice());
       }
 
       updateRecepies(recipes: Recipe[]) {
         this.recipes = recipes;
+        this.storeRecipes();
         this.recipesChanged.next(this.recipes.slice());
       }
 
       deleteRecipe(index: number) {
         this.recipes.splice(index, 1);
+        this.storeRecipes();
         this.recipesChanged.next(this.recipes.slice());
+      }
+
+      storeRecipes(){
+        this.httpClient.put('https://foodies-dream.firebaseio.com/recipes.json', this.recipes)
+        .subscribe(
+          (response: Response) => {
+            console.log(response);
+            this.recipesChanged.next(this.recipes.slice());
+          }
+        );
       }
 
 }
