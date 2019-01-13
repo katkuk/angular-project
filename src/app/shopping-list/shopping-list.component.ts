@@ -4,10 +4,10 @@ import { Observable } from 'rxjs';
 import { select } from '@angular-redux/store';
 
 
-import { ItemsActions } from './actions/items.actions';
-import { Items } from './model/items'
-
-
+import { NgRedux } from '@angular-redux/store';
+import { IAppState } from './store';
+import { Item } from './item.model';
+import { CrudService } from './sl.crud.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -17,25 +17,22 @@ import { Items } from './model/items'
 
 export class ShoppingListComponent {
 
-  @select('items') public items$: Observable<Items>;
-  @select(['items', 'active']) active$;
-  activeItem;
+  items: Item[];
+  errorMessage: String;
 
-  constructor(public actions: ItemsActions) { 
-    actions.getItems();
+  // DI - Dependency injection
+  constructor(private crudService: CrudService,
+    private ngRedux: NgRedux<IAppState>) { 
+    this.items = this.crudService.getAllItems();
   }
+
+
 
   ngOnInit() {
-    this.active$.subscribe(res => {
-      this.activeItem = res;
-    });
-  }
-
-  save(f: any){
-    //merge form data with data model
-    // since form does not include all fields
-    const newItem = Object.assign({}, this.activeItem, f.value);
-    this.actions.save(newItem);
+    this.ngRedux.select(res => res.items).subscribe((data) => {
+      console.log("redux says: ", data);
+      this.items = data.items;
+    })
   }
 
 }

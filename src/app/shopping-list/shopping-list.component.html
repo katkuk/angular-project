@@ -12,91 +12,55 @@
 </mat-list> -->
 
 
-
 <mat-card class="body-container-solid">
-        <mat-card-title class="title">Shopping list</mat-card-title>
-    
-        <div class="shopping-list-container-top">
-            <div class="grid-container-shopping-list">
-                <div class="item">
-                    <h4 class="data redLabel">Item</h4>
-                </div>
-                <div class="amount">
-                    <h4 class="data redLabel">Amount</h4>
-                </div>
-                <div class="edit outer">
-                    <mat-icon class="redIcon data">create</mat-icon>
-                </div>
+    <mat-card-title class="title">Shopping list</mat-card-title>
+
+    <div class="shopping-list-container-top">
+        <div class="grid-container-shopping-list">
+            <div class="item">
+                <h4 class="data redLabel">Item</h4>
+            </div>
+            <div class="amount">
+                <h4 class="data redLabel">Amount</h4>
+            </div>
+            <div class="edit outer">
+                <mat-icon class="redIcon data">create</mat-icon>
             </div>
         </div>
-        <div class="shopping-list-container scrollbarStyle">
-
-                <div class="grid-container-shopping-list scrollbarStyle oneSLitem"
-                *ngFor="let item of (items$ | async).list"
-                [ngClass]="{active: item.id == (active$ | async)?.id}"
-                (click)="actions.setActiveUser(item.id)">
-                        <div class="item">
-                            <!-- item.item should actually be item.name but I called it a bit stupidly in the items.ts model -->
-                            <p class="data">{{item.item}}</p>
-                        </div>
-                        <div class="amount">
-                            <p class="data">{{item.amount}}</p>
-                        </div>
-                        <div class="edit outer" (click)="actions.deleteUser(item.id)">
-                            <mat-icon class="redIcon data">clear</mat-icon>
-                        </div>
-                </div>
-
-        </div>
-
-        <form #f="ngForm" novalidate (ngSubmit)="save(f)">
-        <div class="add-item-container outer">
-            <mat-form-field>
-                <input matInput placeholder="New item" type="text"
-                 [ngModel]="activeItem?.item"
-                 required
-                 #labelRef>
-            </mat-form-field>
-
-            <mat-form-field>
-                <input matInput placeholder="Amount" type="text"
-                name="amount"
-                [ngModel]="activeItem.amount"
-                required>
-            </mat-form-field>
-
-           <button type="submit" [disabled]="f.invalid"> 
-               {{activeItem.id ? 'UPDATE' : 'ADD' }}
-            <mat-icon class="redIcon">add_circle</mat-icon>
-           </button>
-
-           <button type="button" (click)="actions.resetActive()"
-           *ngIf="activeItem.id">
-           <p class="redLabel">clear</p>
-            </button>
-
-            <div class="outer listOptions">
-                    <p class="redLabel" style="margin-right:10px;">print list</p>
-                    <mat-icon class="redIcon">local_printshop</mat-icon>
+    </div>
+    <div class="shopping-list-container scrollbarStyle"
+        *ngFor="let item of items; let i = index">
+        <div class="grid-container-shopping-list scrollbarStyle oneSLitem">
+            <div class="item">
+                <p class="data">{{item.item}}</p>
+            </div>
+            <div class="amount">
+                <p class="data">{{item.amount}}</p>
+            </div>
+            <div class="edit outer">
+                <mat-icon class="redIcon data">clear</mat-icon>
             </div>
         </div>
-        </form>
-   
+    </div>
+
+    <div class="add-item-container outer">
+        <mat-form-field>
+            <input matInput placeholder="New item">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Amount">
+        </mat-form-field>
+
+       <mat-icon class="redIcon">add_circle</mat-icon>
+
+        <div class="outer listOptions">
+                <p class="redLabel" style="margin-right:10px;">print list</p>
+                <mat-icon class="redIcon">local_printshop</mat-icon>
+        </div>
+    </div>
+
+
 </mat-card>
-
-
-
-            <!-- one item template -->
-            <!-- <div class="grid-container-shopping-list scrollbarStyle oneSLitem">
-                <div class="item">
-                    <p class="data">Bread crumbs</p>
-                </div>
-                <div class="amount">
-                    <p class="data">1 package</p>
-                </div>
-                <div class="edit outer">
-                    <mat-icon class="redIcon data">clear</mat-icon>
-                </div>
-            </div> -->
 
 

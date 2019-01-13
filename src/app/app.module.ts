@@ -32,13 +32,12 @@ import { UserService } from './user.service';
 import { FirebaseService } from './firebase/firebase.service';
 import { FilterPipe } from './profile/profile-recipes/profile-recipes-list/filter.pipe';
 
-//stuff for redux
-// import { HttpModule } from '@angular/http';
-import { NgReduxModule } from '@angular-redux/store';
-import { NgRedux, DevToolsExtension } from '@angular-redux/store';
+import { NgRedux, DevToolsExtension, NgReduxModule } from '@angular-redux/store';
+import { IAppState } from './shopping-list/store';
+import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
+import { rootReducer } from './shopping-list/store'; // Added this to get the root reducer
+import { CrudService } from './shopping-list/sl.crud.service';
 
-import { rootReducer, IAppState } from './shopping-list/store/index';
-import { ItemsActions } from './shopping-list/actions/items.actions';
 
 @NgModule({
   declarations: [
@@ -69,45 +68,30 @@ import { ItemsActions } from './shopping-list/actions/items.actions';
     FormsModule,
     MatInputModule,
     LayoutModule,
-    MatToolbarModule,
+    MatToolbarModule,  MatSelectModule, MatTableModule,
     FormsModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatCardModule,
-    MatButtonToggleModule,
-    MatCheckboxModule,
-    MatRadioModule,
-    MatGridListModule,
-    MatStepperModule,
-    MatMenuModule,
-    MatTabsModule,
-    MatDividerModule,
-    MatSelectModule,
-    MatTableModule,
-    NgReduxModule
+    MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatButtonToggleModule,
+    MatCheckboxModule, MatRadioModule, MatGridListModule, MatStepperModule, MatMenuModule, MatTabsModule, MatDividerModule,
+    NgReduxModule,
+    NgReduxModule, NgReduxRouterModule.forRoot()
+
   ],
-  providers: [ShoppingListService, RecipeService, UserService, FirebaseService],
+  providers: [ShoppingListService, RecipeService, UserService, FirebaseService, CrudService],
   bootstrap: [AppComponent]
 }) 
 
 
-export class AppModule { 
-  constructor(
-    private ngRedux: NgRedux<IAppState>,
-    private devTool: DevToolsExtension
-  ) {
+export class AppModule {
+  constructor(private ngRedux: NgRedux<IAppState>,
+    private devTool: DevToolsExtension,
+    private ngReduxRouter: NgReduxRouter) {
+   
+    this.ngRedux.configureStore(rootReducer, {}, [],[ devTool.isEnabled() ? devTool.enhancer() : f => f]);
 
-    this.ngRedux.configureStore(
-      rootReducer,
-      {} as IAppState,
-      [ ],
-      [ devTool.isEnabled() ? devTool.enhancer() : f => f]
-    );
-
+    ngReduxRouter.initialize(/* args */);   
   }
-}
+ 
+ }
 
 
 
