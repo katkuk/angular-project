@@ -37,6 +37,7 @@ import { IAppState } from './shopping-list/store';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 import { rootReducer } from './shopping-list/store'; // Added this to get the root reducer
 import { CrudService } from './shopping-list/sl.crud.service';
+import { MatchingValidatorDirective } from './login-and-register/matchingValidator.directive';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { CrudService } from './shopping-list/sl.crud.service';
     ProfileRecipesDetailComponent,
     ProfileRecipesEditComponent,
     ProfileRecipesListComponent,
-    FilterPipe
+    FilterPipe,
+    MatchingValidatorDirective
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,6 @@ import { CrudService } from './shopping-list/sl.crud.service';
     MatInputModule,
     LayoutModule,
     MatToolbarModule,  MatSelectModule, MatTableModule,
-    FormsModule,
     MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatButtonToggleModule,
     MatCheckboxModule, MatRadioModule, MatGridListModule, MatStepperModule, MatMenuModule, MatTabsModule, MatDividerModule,
     NgReduxModule,

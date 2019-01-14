@@ -13,6 +13,7 @@ export class ProfileRecipesListComponent implements OnInit {
   userRecipes: any;
 
   filteredRecipes = '';
+  showR = true;
 
   constructor( private userService: UserService, 
                private recipeService: RecipeService) { }
@@ -31,4 +32,18 @@ export class ProfileRecipesListComponent implements OnInit {
     //a ne kak bi stvarno trebalo bit
     // this.userRecipes = loggedInUser.recipes;
 }
+
+switch(){
+  console.log('222');
+  this.showR = !this.showR;
+}
+
+//just some data to try to filter
+
+listItems = [
+  {"name": "Pizza"},
+  {"name": "Pasta"},
+  {"name": "Soup"}
+]
+
 }

@@ -28,11 +28,7 @@ export class UserAuthGuard implements CanActivate {
     if (this.userAuthService.isLoggedIn) { return true };
 
     this.userAuthService.redirectUrl = url;
-
     this.router.navigate(['register-login']);
     return false;
-
-
-
   }
 }

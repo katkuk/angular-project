@@ -1,7 +1,9 @@
 
 <input type="text" class="search" placeholder="Search your recipes..." [(ngModel)]="filterString">
+<mat-icon class="redIcon" style="float:right;" (click)="switch()">list</mat-icon>
 
-<div *ngFor="let userRecipe of userRecipes | filter:filterString; let i = index"
+<div *ngIf="showR" >
+    <div *ngFor="let userRecipe of userRecipes | filter:filterString; let i = index"
     class="card-container recipe-container" style="margin-top:30px">
     <a class="openRecipeLink" routerLink="detail" [routerLink] = "[i]"> 
         <mat-card class="grid-container-my-recipes" style="margin:2px;">
@@ -23,6 +25,13 @@
    
                 </div>
         </mat-card>
-     </a>
-     
+     </a>  
    </div>
+</div>
+
+<div *ngIf="!showR">
+    <div *ngFor = "let recipe of listItems | filter:filterString"
+    style="border-bottom:1px solid rgba(0, 0, 0, 0.12)">
+        <p>{{recipe.name}}</p>
+    </div>
+</div>   

@@ -14,8 +14,6 @@ import { Router } from '@angular/router';
 })
 
 
-
-
 export class LoginAndRegisterComponent implements OnInit {
   registerForm : FormGroup;
   loginForm : FormGroup;
@@ -33,8 +31,8 @@ export class LoginAndRegisterComponent implements OnInit {
     this.registerForm = this.fb.group({
       userId: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
       username: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', Validators.required, Validators.email],
-      password: ['', Validators.required, Validators.minLength(5)],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(5)]],
       repeatPassword: [''],
       picture: 0,
       description: "Hello, I am a new foodie's dream user!"
@@ -84,6 +82,6 @@ export class LoginAndRegisterComponent implements OnInit {
     }
 
 
-    
+
   }
 }

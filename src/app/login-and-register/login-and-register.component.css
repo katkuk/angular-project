@@ -1,5 +1,13 @@
 .errorMessage {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    color: #ffeb3b;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #c55151;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    margin-bottom:60px;
+}
+
+.mat-form-field {
+    margin:20px !important;
 }
